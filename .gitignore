@@ -62,6 +62,10 @@ target/
 # Database
 *.db
 *.rdb
+chat_history.*
+
+# Scratch scripts
+scratch/
 
 # Pycharm
 .idea
