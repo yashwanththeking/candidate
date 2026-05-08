@@ -17,7 +17,9 @@ USER_AVATAR = "👤"
 BOT_AVATAR = "🤖"
 
 # Configure Gemini API
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+# This checks both st.secrets (for Streamlit Cloud) and os.getenv (for local .env)
+api_key = st.secrets.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=api_key)
 
 # Function to get available models
 @st.cache_resource
